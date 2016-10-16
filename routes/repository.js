@@ -1,32 +1,51 @@
-var express = require('express');
-var router = express.Router();
-var Repository = require('../models/repository');
-var User = require('../models/user');
+'use strict'
+const express = require('express');
+const router = express.Router();
+const Repository = require('../models/repository');
+const request = require('request');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-    Repository.find({}, function(err, docs) {
-      res.send({documents: docs});
-    });
-});
-
-router.post('/create', function(req, res) {
-  var repository = new Repository();
-  var user = new User(req.body.user);
-
-  console.log(user);
-
-  repository._id = user._id;
-  repository.name = "Vardhman Mehta";
-  repository.link = "http://mehtav.xyz",
-  repository.labels.push("asdf");
-
-  repository.save(function(err) {
-    if (err) {
+router.get('/all', (req, res, next) => {
+  let username = req.params.username || 'vardhman1996';
+  let userid = req.params.userid || 12345;
+  let url = `https://api.github.com/users/${username}/repos`
+  request({url: url, headers: { 'User-Agent' : username }}, (err, response, body) => {
+    if (err || response.code != 200) {
       console.log(err);
     }
-    res.send({done: repository});
+
+    let data = JSON.parse(body);
+    let repos = [{ userid : userid }];
+    for (let i = 1; i < data.length; i++) {
+      repos.push({id : data[i].id,
+                  name : data[i].name,
+                  login : data[i].owner.login,
+                  html_url : data[i].html_url,
+                  description : data[i].description});
+    }
+    res.send(repos);
   });
+});
+
+router.post('/save', (req, res, next) => {
+  let data = req.body.repository;
+
+  for (let i = 1; i < data.length; i++) {
+    let repository = new Repository();
+    repository.name = data[i].name;
+    repository.html_url = data[i].html_url;
+    repository.description = data[i].description;
+    repository.userid = data[0].userid;
+    repository.repoid = data[i].id;
+
+    repository.save((err) => {
+      if (err) {
+        console.log(err);
+      }
+    });
+  }
+  res.send({done: true});
+
 });
 
 module.exports = router;

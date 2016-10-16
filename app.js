@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/data/repository', repository);
+app.use('/repository', repository);
 app.use('/auth', auth);
 
 // catch 404 and forward to error handler
