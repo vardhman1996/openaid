@@ -11,3 +11,13 @@ The entire service was centered around popular javascript frameworks. The server
 
 ## Challenges we ran into
 Learning new technologies. Deciding between sql and no-sql databases. Having to distribute work between 4 people and also make sure to work as efficiently as possible. Moreover, we had to figure out the various api calls for github and read through many documentations and specifications for all out technologies.
+
+## Accomplishments that we're proud of
+Building an entire service in one night that has most of the structure we set out to build. An entire server side in node and express, writing front end code in Jade that none of us had used before. Utilizing databases and setting up APIs was pretty challenging as well. Also, wrapping text in CSS is a lot harder than it looks.
+
+## What we learned
+Firstly, we like sleep a lot more than we think we do. Secondly, the importance of skills outside just writing code. A lot of things like user research, product design and management skills play a huge role in the success and fulfillment of a project. Quite often we were going to the whiteboard discussing over and over again what we wanted to build. 
+
+## What's next for OpenAid
+Making a more extensive and friendlier environment for open source development. 
+One of the features we were most excited about was peer review of code. Snippets of code would be reviewed by volunteers and stakeholders well before it is finally merged and published. This would not only ensure higher quality code for projects but would also serve as a learning platform for developers who want to contribute to the open source community.
