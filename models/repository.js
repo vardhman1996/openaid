@@ -2,10 +2,11 @@ const mongoose = require('mongoose');
       Schema = mongoose.Schema;
 
 const RepositorySchema = new Schema({
-  _id: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true},
   name: {type: String, required: true},
-  link: {type: String, required: true},
-  labels: [String]
+  description : {type: String, required: false},
+  html_url: {type: String, required: true},
+  userid: {type: Number, required: true},
+  repoid: {type: Number, required: true}
 });
 
 module.exports = mongoose.model('Repository', RepositorySchema);
