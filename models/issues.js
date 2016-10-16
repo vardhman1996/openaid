@@ -5,8 +5,8 @@ const IssuesSchema = new Schema({
   title: {type: String, required: true},
   body : {type: String, required: false},
   html_url: {type: String, required: true},
-  userid: {type: Number, required: true},
-  repoid: {type: Number, required: true},
+  username: {type: String, required: true},
+  reponame: {type: String, required: true},
   labels: []
 });
 

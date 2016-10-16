@@ -4,11 +4,14 @@ const router = express.Router();
 const Repository = require('../models/repository');
 const request = require('request');
 
+const client_id = '3c3a5087f013115ba635';
+const client_secret = '12bd42f1c77097c542d872c4c4f7be860af399b2';
+
 /* GET users listing. */
 router.get('/all/:userid/:username', (req, res, next) => {
   let username = req.params.username || 'vardhman1996';
   let userid = req.params.userid || 12345;
-  let url = `https://api.github.com/users/${username}/repos`
+  let url = `https://api.github.com/users/${username}/repos?client_id=${client_id}&client_secret=${client_secret}`
   request({url: url, headers: { 'User-Agent' : username }}, (err, response, body) => {
     if (err || response.code != 200) {
       console.log(err);
@@ -39,11 +42,20 @@ router.post('/save', (req, res, next) => {
     repository.userid = data[0].userid;
     repository.username = data[i].login;
     repository.repoid = data[i].id;
-
-    repository.save((err) => {
-      if (err) {
-        console.log(err);
-      }
+    Repository.findOne({
+        name: repository.id,
+        description : repository.description,
+        userid : repository.userid,
+        username : repository.username,
+        repoid : repository.repoid
+      }).then(function(data){
+        if(data == null) {
+          repository.save((err) => {
+            if (err) {
+              console.log(err);
+            }
+          });
+        }
     });
   }
   res.send({done: true});
