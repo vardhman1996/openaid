@@ -1,8 +1,310 @@
+/*Common css and header*/
+html {
+    height: 100%;
+}
+
 body {
-  padding: 50px;
+  margin: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100%;
+}
+
+#header {
+    width: 100%;
+    height: 10%;
+    background: #FF4C3B;
+    position: fixed;
+    color: white;
+}
+
+h1 {
+    margin: 10px;
+    padding: 10px;
+}
+
+#signout {
+    float: right;
+    margin: 0px;
+    margin-top: -40px;
+    margin-right: 20px;
+    padding-top: 0px;
+    padding-right: 20px;
+    display: inline;
+}
+/*Header option*/
+#aboutus {
+    float: right;
+    margin: 0px;
+    margin-top: -40px;
+    margin-right: 140px;
+    padding-top: 0px;
+    padding-right: 20px;
+    display: inline;
+}
+
+/*Landing page*/
+#landingoptions {
+    width: 100%;
+    height: 80%;
+    position: relative;
+}
+
+#left, #right {
+    margin: 0px;
+    margin-top: 5%;
+    width: 50%;
+    height: 400px;
+    float: left;
+    max-width: 1920px;
+    background-size: cover;
+    max-height: 80%;
+    max-width: 50%;
+    text-align: center;
+}
+
+#left {
+    background-image: url("../images/contribute.jpg");
+}
+
+#right {
+    background-image: url("../images/publish.jpeg");
+}
+
+button {
+    border: 0px;
+    padding: 15px;
+    color: white;
+    background: #00c3ff;
+    font-size: 1.2em;
+
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+}
+
+#About {
+    color: white;
+    background: #2a3951;
+    text-align: center;
+    padding: 40px;
+    height: 100%;
+}
+
+#About>h1 {
+    padding-top: 30px;
+}
+
+p {
+    margin: 40px;
+    margin-right: 20%;
+    margin-left: 20%;
 }
 
 a {
-  color: #00B7FF;
+    text-decoration: none;
+    color: white;
+}
+
+/*repositories*/
+#Repositories {
+    text-align: center;
+    margin: 0px;
+    padding-top: 100px;
+    height: 100%;
+}
+
+#Repositories h1 {
+    margin-bottom: 30px;
+}
+
+form {
+    margin: 0px;
+    height: 500px;
+}
+
+label {
+    font-size: 1.2em;
+    height: 60px;
+}
+
+.optionSection {
+    background: rgba(255, 255, 255, 0.8);
+    width: 80%;
+    white-space: nowrap;
+    margin: 0px;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: left;
+    box-shadow: 2px 2px 2px #888888;
+}
+
+.title {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.description {
+    font-size: 1.0em;
+    color: gray;
+    margin-top: 10px;
+    margin-left: 10px;
+    word-wrap: break-word;
+    display: inline-block;
+    width: 70%;
+    max-width: 70%;
+    vertical-align: top;
+    white-space: normal;
+}
+
+input {
+    float: right;
+}
+
+#submitrepos {
+    float: none;
+    border: 0px;
+    border-radius: 8px;
+    padding: 12px;
+    color: white;
+    background: #00c3ff;
+    font-size: 1.4em;
+
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+}
+
+/*Developers*/
+#Developers {
+    text-align: center;
+    margin: 0px;
+    padding-top: 100px;
+}
+
+#Developers h1 {
+    margin-bottom: 30px;
+}
+
+/*Masters*/
+#Masters {
+    text-align: center;
+    margin: 0px;
+    padding-top: 100px;
+}
+
+#Masters h1 {
+    margin-bottom: 30px;
+}
+
+h5 {
+    font-size: 1.2em;
+    margin-right: 40px;
+}
+
+/*Issues*/
+#Issues {
+    text-align: center;
+    margin: 0px;
+    padding-top: 100px;
+    height: 100%;
+}
+
+#Issues h1 {
+    margin-bottom: 30px;
+}
+
+#submitissues {
+    float: none;
+    border: 0px;
+    border-radius: 8px;
+    padding: 12px;
+    color: white;
+    background: #00c3ff;
+    font-size: 1.4em;
+
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+}
+
+.grid {
+    margin: 0px;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 20%;
+    height: 20%;
+    border: 2px;
+    text-align: center;
+    display: inline-block;
+}
+
+#tagform {
+    margin: 0px;
+}
+
+#taginput {
+    list-style-type: none;
+    width: 80px;
+    height: 80px;
+    border: 6px solid black;
+    margin: 5px;
+    padding: 10px;
+    display: inline;
+    border-radius: 6px;
+}
+
+#SearchTitle {
+    text-align: center;
+    margin: 0px;
+    padding-top: 120px;
+}
+
+#teamtitle {
+    text-align: center;
+    margin: 0px;
+    margin-bottom: 30px;
+    padding-top: 120px;
+    margin-left: 60px;
+}
+
+.person {
+    margin: 50px auto;
+    border-radius: 50%;
+    display: block;
+    max-width:230px;
+    max-height:95px;
+    width: auto;
+    height: auto;
+
+}
+
+.profile {
+    display: inline-block;
+    margin-left: 6%;
+    margin-right: 6%;
+    text-align: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+/*After publishing project*/
+#published {
+    padding-top: 120px;
+    text-align: center;
+}
+
+#SearchModule {
+    text-align: center;
+    margin: 0px;
+    padding-top: 100px;
+    height: 100%;
+    padding: 20px;
+    background: #d6d6d6;
+}
+
+.issuelink {
+    color: black;
 }

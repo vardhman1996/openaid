@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    div#Repositories
+        h1 Choose Your Repositories
+        form(action="/repository/save", method="post")
+            - for(var i = 1; i < repos.length; i++)
+                label
+                    div.optionSection
+                        span.title #{repos[i].name}
+                        br
+                        span.description #{repos[i].description}
+                        div#input
+                            input.check(type="checkbox" name='repos' value='#{repos[i].id}')
+            input#submitrepos(type="submit", name="Submit")

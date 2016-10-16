@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    div#SearchModule
+        h1 Choose Your Specs!
+        form(action="/issues/search", method="post")
+            each tag in tags.labels
+                label
+                    div.optionSection
+                        span.title #{tag.name}
+                        div#input
+                            input.check(style="border-color: ##{tag.color}" type="checkbox" name='tag' value='#{tag.name}')
+            else
+                p "Sorry, we didn't find any Specs."
+            input#submitrepos(type="submit", name="Done")

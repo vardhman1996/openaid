@@ -1,0 +1,18 @@
+extend layout
+
+block content
+    div#Issues
+        h1#SearchHeader Stuff to work on!
+        form(action="localhost:3000/repos", method="post")
+            each issue in issues
+                label
+                    div.optionSection
+                        div.title
+                            a.issuelink(href="#{issue.html_url}" target="_issue") #{issue.title}
+                        br
+                        div.description #{issue.body}
+                        div#input
+                            //input.check(type="checkbox" name='repo' value='#{issue}')
+            else
+                p "Sorry, we didn't find any repositories."
+            //input#submitissues(type="submit", name="Submit")
