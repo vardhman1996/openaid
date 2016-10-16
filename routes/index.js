@@ -46,11 +46,6 @@ router.get('/collectedissues', function(req, res, next) {
 router.get('/search', function(req, res, next) {
     var tags ={ labels: [
         {
-            url: "https://api.github.com/repos/Divye02/Demo_repo/labels/OA-Damn",
-            name: "Damn",
-            color: "1d76db"
-        },
-        {
             url: "https://api.github.com/repos/Divye02/Demo_repo/labels/OA-tree",
             name: "tree",
             color: "c2e0c6"
@@ -67,9 +62,20 @@ router.get('/search', function(req, res, next) {
         },
         {
             url: "https://api.github.com/repos/Divye02/Demo_repo/labels/OA-tree",
+            name: "machine-learning",
+            color: "c2e0c6"
+        },
+        {
+            url: "https://api.github.com/repos/Divye02/Demo_repo/labels/OA-tree",
             name: "computer-vision",
             color: "c2e0c6"
+        },
+        {
+            url: "https://api.github.com/repos/Divye02/Demo_repo/labels/OA-tree",
+            name: "NLP",
+            color: "c2e0c6"
         }
+
     ]};
 
     res.render('search', {title: 'Issues',  tags: tags});
