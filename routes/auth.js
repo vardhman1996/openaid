@@ -21,6 +21,7 @@ router.get('/temp_token', (req, res) => {
     (error, response, body) => {
         if (!error && response.statusCode == 200) {
             var access_token = body.substring(13, body.indexOf('&'));
+            console.log(access_token);
             res.redirect(`${redirect_uri_user}/${access_token}`);
         }
     });

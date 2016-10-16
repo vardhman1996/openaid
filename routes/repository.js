@@ -1,7 +1,7 @@
 'use strict'
 const express = require('express');
 const router = express.Router();
-const Repository = require('../models/repository');
+const Repository = require('../models/label');
 const request = require('request');
 
 const client_id = '3c3a5087f013115ba635';
