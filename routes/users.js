@@ -18,27 +18,32 @@ router.get('/:access_token', function(req, res, next) {
     url : 'http://api.github.com/user?access_token=' + access_token, 
     headers: {"User-Agent" : "OpenAid"}
   },function (error, response, body) {
-        console.log("HERE");
         if (!error) {
             body = JSON.parse(body);
             var user = new User();
             // console.log(body.login + " " + body.username + " " + body.id);
-            // User.findOne({
-            //   id: body.id
-            // }, function(resm) {
-            //   console.log("Query Result: " + resm);
-            // });
-            user.username = body.login;
-            user.name = body.name;
-            user.id = body.id;
-            user.save(function (err) {
-              if(err) {
-                console.log(err);
-              }
-              else {
-                res.send({done: true});
+            User.findOne({
+              id: body.id
+            }).then(function(doc){
+              if(doc == null) {
+                console.log("No user exists");
+                var user = new User();
+                user.username = body.login;
+                user.name = body.name;
+                user.id = body.id;
+                user.save(function (err) {
+                  if(err) {
+                    console.log(err);
+                  }
+                  else {
+                    res.send({done: true});
+                  }
+                });
+              } else {
+                res.send(doc);
               }
             });
+            
         } else {
             res.send("ERROR");
         }
