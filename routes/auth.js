@@ -12,7 +12,7 @@ const request = require('request');
 const github_auth_accessToken = "https://github.com/login/oauth/access_token?";
 /* GET users listing. */
 router.get('/', (req, res, next) => {
-    res.redirect(`${github_auth}client_id=${client_id}&redirect_uri=${redirect_uri_accessTokenTemp}`);
+    res.redirect(`${github_auth}client_id=${client_id}&redirect_uri=${redirect_uri_accessTokenTemp}&scope=public_repo`);
 });
 
 router.get('/temp_token', (req, res) => {
