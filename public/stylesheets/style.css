@@ -1,8 +1,189 @@
+html {
+    height: 100%;
+}
+
 body {
-  padding: 50px;
+  margin: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100%;
+}
+
+#header {
+    width: 100%;
+    height: 100px;
+    background: #FF4C3B;
+    position: fixed;
+    color: white;
+}
+
+h1 {
+    margin: 0px;
+    padding-top: 30px;
+    padding-left: 20px;
+}
+
+#signout {
+    float: right;
+    margin: 0px;
+    margin-top: -20px;
+    margin-right: 20px;
+    padding-top: 0px;
+    padding-right: 20px;
+    display: inline;
+}
+/*Header option*/
+#aboutus {
+    float: right;
+    margin: 0px;
+    margin-top: -20px;
+    margin-right: 100px;
+    padding-top: 0px;
+    padding-right: 20px;
+    display: inline;
+}
+
+#left, #right {
+    margin: 0px;
+    margin-top: 100px;
+    width: 50%;
+    height: 400px;
+    float: left;
+    max-width: 1920px;
+    background-size: cover;
+    max-height: 80%;
+    max-width: 50%;
+    position: relative;
+    text-align: center;
+}
+
+#left {
+    background-image: url("../images/contribute.jpg");
+}
+
+#right {
+    background-image: url("../images/publish.jpeg");
+}
+
+button {
+    border: 0px;
+    border-radius: 8px;
+    padding: 15px;
+    color: white;
+    background: #00c3ff;
+    font-size: 1.2em;
+
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+}
+
+#About {
+    color: white;
+    background: #01787c;
+    text-align: center;
+    padding: 40px;
+    height: 100%;
+}
+
+#About h1 {
+    margin-top: 90%;
+    position: relative;
+    margin-top: 20px ;
+}
+
+p {
+    margin: 60px;
+    margin-right: 20%;
+    margin-left: 20%;
 }
 
 a {
-  color: #00B7FF;
+    text-decoration: none;
+    color: white;
+}
+
+/*repositories*/
+#Repositories {
+    text-align: center;
+    margin: 0px;
+    padding-top: 100px;
+}
+
+#Repositories h1 {
+    margin-bottom: 30px;
+}
+
+form {
+    margin: 0px;
+    height: 500px;
+}
+
+label {
+    border-radius: 10px;
+    font-size: 1.2em;
+    height: 60px;
+}
+
+#optionSection {
+    background: rgba(200, 200, 200, 0.8);
+    width: 80%;
+    white-space: nowrap;
+    border-radius: 10px;
+    margin: 0px;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: left;
+}
+
+#title {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+#description {
+    font-size: 1.0em;
+    color: gray;
+
+}
+
+input {
+    float: right;
+}
+
+#submitrepos {
+    float: none;
+    border: 0px;
+    border-radius: 8px;
+    padding: 12px;
+    color: white;
+    background: #00c3ff;
+    font-size: 1.4em;
+
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+}
+
+/*Developers*/
+#Developers {
+    text-align: center;
+    margin: 0px;
+    padding-top: 100px;
+}
+
+#Developers h1 {
+    margin-bottom: 30px;
+}
+
+/*Masters*/
+#Masters {
+    text-align: center;
+    margin: 0px;
+    padding-top: 100px;
+}
+
+#Masters h1 {
+    margin-bottom: 30px;
 }
