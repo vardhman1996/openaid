@@ -1,9 +1,9 @@
 'use strict'
 const express = require('express');
 const router = express.Router();
-const Repository = require('../models/label');
+const Repository = require('../models/repository');
 const request = require('request');
-
+let r = [];
 const client_id = '3c3a5087f013115ba635';
 const client_secret = '12bd42f1c77097c542d872c4c4f7be860af399b2';
 
@@ -27,27 +27,37 @@ router.get('/all/:userid/:username', (req, res, next) => {
                   html_url : data[i].html_url,
                   description : data[i].description});
     }
-    res.send(repos);
+    r = repos;
+    res.render('repos', {title: 'Login',  repos: repos});
   });
 });
 
 router.post('/save', (req, res, next) => {
-  let data = req.body.repository;
+  let array = req.body.repos;
+  let data = [];
+  for (let i = 0; i < array.length; i++) {
+    for(let j = 1; j < r.length; j++) {
+      if (r[j].id == array[i]) {
+        data.push(r[j]);
+      }
+    }
+  }
 
-  for (let i = 1; i < data.length; i++) {
+  for (let i = 0; i < data.length; i++) {
     let repository = new Repository();
     repository.name = data[i].name;
     repository.html_url = data[i].html_url;
     repository.description = data[i].description;
-    repository.userid = data[0].userid;
+    repository.userid = r[0].userid;
     repository.username = data[i].login;
     repository.repoid = data[i].id;
     Repository.findOne({
-        name: repository.id,
+        name: repository.name,
         description : repository.description,
         userid : repository.userid,
         username : repository.username,
-        repoid : repository.repoid
+        repoid : repository.repoid,
+        html_url: repository.html_url
       }).then(function(data){
         if(data == null) {
           repository.save((err) => {
@@ -58,7 +68,7 @@ router.post('/save', (req, res, next) => {
         }
     });
   }
-  res.send({done: true});
+  res.redirect(`/labels/${data[0].login}`);
 });
 
 module.exports = router;

@@ -20,6 +20,7 @@ router.get('/:access_token', (req, res) => {
   request({ url : url, headers: {"User-Agent" : "OpenAid"}}, (error, response, body) => {
     if (!error) {
       body = JSON.parse(body);
+      console.log(access_token);
       let user = new User();
       User.findOne({
         id: body.id
@@ -34,6 +35,11 @@ router.get('/:access_token', (req, res) => {
             if(err) {
               console.log(err);
             }
+          });
+        } else {
+          data.access_token = access_token;
+          data.save(function (err, u) {
+            if(err) console.log(err);
           });
         }
         res.redirect(`/repository/all/${body.id}/${body.login}`);
