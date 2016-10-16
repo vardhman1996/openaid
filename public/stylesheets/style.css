@@ -240,13 +240,14 @@ h5 {
     height: 20%;
     border: 2px;
     text-align: center;
+    display: inline-block;
 }
 
-ul {
+#tagform {
     margin: 0px;
 }
 
-li {
+#taginput {
     list-style-type: none;
     width: 80px;
     height: 80px;
@@ -260,5 +261,48 @@ li {
 #SearchTitle {
     text-align: center;
     margin: 0px;
+    padding-top: 120px;
+}
+
+#teamtitle {
+    text-align: center;
+    margin: 0px;
+    margin-bottom: 30px;
+    padding-top: 120px;
+    margin-left: 60px;
+}
+
+.person {
+    margin: 50px auto;
+    border-radius: 50%;
+    display: block;
+    max-width:230px;
+    max-height:95px;
+    width: auto;
+    height: auto;
+
+}
+
+.profile {
+    display: inline-block;
+    margin-left: 6%;
+    margin-right: 6%;
+    text-align: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+/*After publishing project*/
+#published {
+    padding-top: 120px;
+    text-align: center;
+}
+
+#SearchModule {
+    text-align: center;
+    margin: 0px;
     padding-top: 100px;
+    height: 100%;
+    padding: 20px;
+    background: #d6d6d6;
 }

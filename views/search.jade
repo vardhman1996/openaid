@@ -1,9 +1,15 @@
 extends layout
 
 block content
-    h1#SearchTitle Look for interesting fields
-    div.grid
-        ul
-        each tag in tags.labels
-            style=" color: #FF333"
-            li(style="border-color: ##{tag.color}") #{tag.name}
+    div#SearchModule
+        h1 Choose Your Specs!
+        form(action="#", method="post")
+            each tag in tags.labels
+                label
+                    div.optionSection
+                        span.title #{tag.name}
+                        div#input
+                            input.check(style="border-color: ##{tag.color}" type="checkbox" name='tag' value='#{tag.name}')
+            else
+                p "Sorry, we didn't find any Specs."
+            input#submitrepos(type="submit", name="Done")

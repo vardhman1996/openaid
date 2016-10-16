@@ -56,6 +56,10 @@ router.get('/repos', function(req, res, next) {
     res.render('repos', {title: 'Login',  repos: repositories});
 });
 
+router.get('/team', function(req, res, next) {
+    res.render('team', {title: 'Login',  repos: repositories});
+});
+
 router.get('/collectedissues', function(req, res, next) {
     var issues = [
         {
@@ -134,6 +138,12 @@ router.get('/search', function(req, res, next) {
 router.post('/repos', function(req, res, next) {
     console.log(req.body);
     res.render('repos', {title: 'Submitted'});
+});
+
+// List of functions posted
+router.get('/published', function(req, res, next) {
+    console.log(req.body);
+    res.render('published', {title: 'Congrats!'});
 });
 
 module.exports = router;
