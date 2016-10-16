@@ -11,12 +11,24 @@ const client_secret = '12bd42f1c77097c542d872c4c4f7be860af399b2';
 
 /* GET home page. */
 router.post('/', function(req, res, next) {
+    var issues = [];
     Repos.find({}, (error, repos) => {
+        var total_repos = repos.length;
+        var current_repos = 0;
         repos.forEach( (repo) => {
             var url = `https://api.github.com/repos/${repo.username}/${repo.name}/issues?client_id=${client_id}&client_secret=${client_secret}`;
             request({ url : url, headers: {"User-Agent" : "OpenAid"}}, (error, response, body) => {
                 body = JSON.parse(body);
+                var total_issues = body.length;
+                var current_issues = 0;
+                if (current_issues == total_issues) {
+                    current_repos++;
+                }
+                if (current_repos == total_repos) {
+                    res.send(issues);
+                }
                 body.forEach((issue) => {
+                    issues.push(issue)
                     var issue_db = new Issues();
                     issue_db.title = issue.title;
                     issue_db.html_url = issue.html_url;
@@ -26,6 +38,13 @@ router.post('/', function(req, res, next) {
                     issue_db.save( (err) => {
                         if (err) {
                             console.log(err);
+                        }
+                        current_issues++;
+                        if (current_issues == total_issues) {
+                            current_repos++;
+                        }
+                        if (current_repos == total_repos) {
+                            res.send(issues);
                         }
                     });
                 });
@@ -38,7 +57,7 @@ router.get('/', function(req, res, next) {
     Issues.find({}, (error, issues) => {
         res.send(issues);
     });
-    
+
 });
 
 module.exports = router;
