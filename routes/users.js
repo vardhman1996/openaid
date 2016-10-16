@@ -27,6 +27,7 @@ router.get('/:access_token', (req, res) => {
         if(data == null) {
           let user = new User();
           user.username = body.login;
+          user.access_token = access_token;
           user.name = body.name;
           user.id = body.id;
           user.save((err) => {
