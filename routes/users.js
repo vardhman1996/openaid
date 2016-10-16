@@ -11,8 +11,9 @@ var User = require('../models/user');
 
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-    var access_token = req.query.access_token;
+
+router.get('/:access_token', function(req, res, next) {
+    var access_token = req.params.access_token;
   request({
     url : 'http://api.github.com/user?access_token=' + access_token, 
     headers: {"User-Agent" : "OpenAid"}
