@@ -8,7 +8,7 @@ block content
                 label
                     div.optionSection
                         div.title
-                            a(href="#{issue.html_url}" target="_issue", color="black") #{issue.title}
+                            a.issuelink(href="#{issue.html_url}" target="_issue") #{issue.title}
                         br
                         div.description #{issue.body}
                         div#input
