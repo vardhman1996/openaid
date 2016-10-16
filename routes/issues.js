@@ -1,3 +1,4 @@
+'use strict';
 var express = require('express');
 var router = express.Router();
 var sleep = require('sleep');
@@ -34,7 +35,20 @@ router.post('/', function(req, res, next) {
                     issue_db.html_url = issue.html_url;
                     issue_db.username = issue.user.login;
                     issue_db.reponame = repo.name;
-                    issue_db.labels = issue.labels;
+                    issue_db.body = issue.body;
+
+                    let labels = [];
+
+                    for(let i = 0; i < issue.labels.length; i++) {
+                        if((issue.labels[i].name).startsWith('OA-')) {
+                            let tempLabel = issue.labels[i];
+                            let len = tempLabel.name.length;
+                            tempLabel['name'] = tempLabel['name'].substring(3, len);
+                            labels.push(tempLabel);
+                        }
+                    }
+                    issue_db.labels = labels;
+
                     issue_db.save( (err) => {
                         if (err) {
                             console.log(err);
@@ -57,7 +71,18 @@ router.get('/', function(req, res, next) {
     Issues.find({}, (error, issues) => {
         res.send(issues);
     });
+});
 
+router.get('/search', (req, res, next) => {
+    let searchParams = ["graphs", "tree"];
+
+    Issues.find({
+                    "labels.name" : { $in : searchParams }
+                }).then((data) => {
+                    res.send({data: data});
+                }).catch((err) => {
+                    res.send(err);
+                });
 });
 
 module.exports = router;
