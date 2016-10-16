@@ -48,10 +48,20 @@ router.get('/', function(req, res, next) {
                         }
                     }
                     issue_db.labels = labels;
-
-                    issue_db.save( (err) => {
-                        if (err) {
-                            console.log(err);
+                    
+                    Issues.findOne({
+                        title    : issue_db.title,
+                        html_url : issue_db.html_url,
+                        username : issue_db.username,
+                        reponame : issue_db.reponame,
+                        body     : issue_db.body
+                    }).then(function(data){
+                        if(data == null) {
+                            issue_db.save( (err) => {
+                                if (err) {
+                                    console.log(err);
+                                }
+                            });
                         }
                         current_issues++;
                         if (current_issues == total_issues) {
@@ -61,6 +71,8 @@ router.get('/', function(req, res, next) {
                             res.redirect('/search');
                         }
                     });
+
+
                 });
             });
         });
