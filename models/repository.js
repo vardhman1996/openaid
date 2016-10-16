@@ -6,6 +6,7 @@ const RepositorySchema = new Schema({
   description : {type: String, required: false},
   html_url: {type: String, required: true},
   userid: {type: Number, required: true},
+  user_name: {type: String, required: true},
   repoid: {type: Number, required: true}
 });
 

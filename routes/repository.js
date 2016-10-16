@@ -18,6 +18,7 @@ router.get('/all/:userid/:username', (req, res, next) => {
     let repos = [{ userid : userid }];
     for (let i = 1; i < data.length; i++) {
       repos.push({id : data[i].id,
+                  user_name : data[i].user_name,
                   name : data[i].name,
                   login : data[i].owner.login,
                   html_url : data[i].html_url,
@@ -36,6 +37,7 @@ router.post('/save', (req, res, next) => {
     repository.html_url = data[i].html_url;
     repository.description = data[i].description;
     repository.userid = data[0].userid;
+    repository.user_name = data[i].login
     repository.repoid = data[i].id;
 
     repository.save((err) => {
