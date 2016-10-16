@@ -11,8 +11,8 @@ var request = require('request');
 const https = require('https');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-    var access_token = "02e2fa6d145c3c36a3ea56932cf8398592885be9";
+router.get('/:access_token', function(req, res, next) {
+    var access_token = req.params.access_token;
   request({
     url : 'http://api.github.com/user?access_token=' + access_token, 
     headers: {"User-Agent" : "OpenAid"}

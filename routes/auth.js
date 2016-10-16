@@ -19,9 +19,8 @@ router.get('/temp_token', function(req, res) {
     github_auth_accessToken+'client_id='+client_id+'&client_secret='+client_secret+'&code='+req.query.code,
     function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            var access_token = body.substring(13, body.length);
-            console.log(access_token);
-            res.redirect(redirect_uri_user+'?'+body);
+            var access_token = body.substring(13, body.indexOf('&'));
+            res.redirect(redirect_uri_user+'/'+access_token);
         }
     });
 })
