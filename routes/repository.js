@@ -5,7 +5,7 @@ const Repository = require('../models/repository');
 const request = require('request');
 
 /* GET users listing. */
-router.get('/all', (req, res, next) => {
+router.get('/all/:userid/:username', (req, res, next) => {
   let username = req.params.username || 'vardhman1996';
   let userid = req.params.userid || 12345;
   let url = `https://api.github.com/users/${username}/repos`

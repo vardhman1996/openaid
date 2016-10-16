@@ -21,12 +21,10 @@ router.get('/:access_token', function(req, res, next) {
         if (!error) {
             body = JSON.parse(body);
             var user = new User();
-            // console.log(body.login + " " + body.username + " " + body.id);
             User.findOne({
               id: body.id
             }).then(function(doc){
               if(doc == null) {
-                console.log("No user exists");
                 var user = new User();
                 user.username = body.login;
                 user.name = body.name;
@@ -39,11 +37,10 @@ router.get('/:access_token', function(req, res, next) {
                     res.send({done: true});
                   }
                 });
-              } else {
-                res.send(doc);
               }
+      res.redirect(`/repository/all/${body.id}/${body.login}`);
+
             });
-            
         } else {
             res.send("ERROR");
         }
