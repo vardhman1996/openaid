@@ -11,17 +11,17 @@ const github_auth = 'https://github.com/login/oauth/authorize?'
 const request = require('request');
 const github_auth_accessToken = "https://github.com/login/oauth/access_token?";
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', (req, res, next) => {
     res.redirect(`${github_auth}client_id=${client_id}&redirect_uri=${redirect_uri_accessTokenTemp}`);
 });
 
-router.get('/temp_token', function(req, res) {
+router.get('/temp_token', (req, res) => {
     request.post(
     github_auth_accessToken+'client_id='+client_id+'&client_secret='+client_secret+'&code='+req.query.code,
-    function (error, response, body) {
+    (error, response, body) => {
         if (!error && response.statusCode == 200) {
             var access_token = body.substring(13, body.indexOf('&'));
-            res.redirect(redirect_uri_user+'/'+access_token);
+            res.redirect(`${redirect_uri_user}/${access_token}`);
         }
     });
 })
