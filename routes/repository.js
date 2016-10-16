@@ -36,6 +36,7 @@ router.post('/save', (req, res, next) => {
     repository.html_url = data[i].html_url;
     repository.description = data[i].description;
     repository.userid = data[0].userid;
+    repository.username = data[i].login;
     repository.repoid = data[i].id;
 
     repository.save((err) => {
@@ -45,7 +46,6 @@ router.post('/save', (req, res, next) => {
     });
   }
   res.send({done: true});
-
 });
 
 module.exports = router;
