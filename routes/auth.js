@@ -24,10 +24,6 @@ router.get('/temp_token', (req, res) => {
             res.redirect(`${redirect_uri_user}/${access_token}`);
         }
     });
-})
-
-router.get('/token', function(req, res) {
-
-})
+});
 
 module.exports = router;
