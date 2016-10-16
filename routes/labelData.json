@@ -1,0 +1,26 @@
+[
+    {
+        "name":"OA-graphs",
+        "color":"DAF7A6"
+    },
+    {
+        "name":"OA-arrays",
+        "color":"FFC300"
+    },
+    {
+        "name":"OA-heaps",
+        "color":"FF5733"
+    },
+    {
+        "name":"OA-trees",
+        "color":"C70039"
+    },
+    {
+        "name":"OA-machine-learning",
+        "color":"900C3F"
+    },
+    {
+        "name":"OA-computer-vision",
+        "color":"581845"
+    }
+]

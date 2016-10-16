@@ -4,11 +4,18 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var mongoose = require('mongoose');
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var repository = require('./routes/repository');
+var auth = require('./routes/auth');
+var issues = require('./routes/issues');
 
+
+var labels = require('./routes/labels');
 var app = express();
+
+mongoose.connect('mongodb://127.0.0.1:27017/openaid');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,7 +30,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/labels', labels);
 app.use('/users', users);
+app.use('/repository', repository);
+app.use('/auth', auth);
+app.use('/issues', issues);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
