@@ -3,7 +3,7 @@ extends layout
 block content
     div#SearchModule
         h1 Choose Your Specs!
-        form(action="#", method="post")
+        form(action="/issues/search", method="post")
             each tag in tags.labels
                 label
                     div.optionSection

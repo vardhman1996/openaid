@@ -2,41 +2,7 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
 
-var repositories = [{
-        id: 70939672,
-        name: "chessbots",
-        login: "vardhman1996",
-        html_url: "https://github.com/vardhman1996/chessbots",
-        description: " Wrote several chess bots using AI algorithms"
-    },
-    {
-        id: 38805895,
-        name: "code_autocorrector",
-        login: "vardhman1996",
-        html_url: "https://github.com/vardhman1996/code_autocorrector",
-        description: "Code validation for WizRocket"
-    },
-    {
-        id: 32976956,
-        name: "d3",
-        login: "vardhman1996",
-        html_url: "https://github.com/vardhman1996/d3",
-        description: "A JavaScript visualization library for HTML and SVG."
-    },
-    {
-        id: 46309024,
-        name: "getting-a-gig",
-        login: "vardhman1996",
-        html_url: "https://github.com/vardhman1996/getting-a-gig",
-        description: "A guide for getting a gig in college as a tech major."
-    },
-    {
-        id: 36142873,
-        name: "habitat",
-        login: "vardhman1996",
-        html_url: "https://github.com/vardhman1996/habitat",
-        description: null
-    }];
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -91,42 +57,17 @@ router.get('/search', function(req, res, next) {
         },
         {
             url: "https://api.github.com/repos/Divye02/Demo_repo/labels/OA-tree",
-            name: "tree",
+            name: "graph",
             color: "c2e0c6"
         },
         {
             url: "https://api.github.com/repos/Divye02/Demo_repo/labels/OA-tree",
-            name: "tree",
+            name: "heaps",
             color: "c2e0c6"
         },
         {
             url: "https://api.github.com/repos/Divye02/Demo_repo/labels/OA-tree",
-            name: "tree",
-            color: "c2e0c6"
-        },
-        {
-            url: "https://api.github.com/repos/Divye02/Demo_repo/labels/OA-tree",
-            name: "tree",
-            color: "c2e0c6"
-        },
-        {
-            url: "https://api.github.com/repos/Divye02/Demo_repo/labels/OA-tree",
-            name: "tree",
-            color: "c2e0c6"
-        },
-        {
-            url: "https://api.github.com/repos/Divye02/Demo_repo/labels/OA-tree",
-            name: "tree",
-            color: "c2e0c6"
-        },
-        {
-            url: "https://api.github.com/repos/Divye02/Demo_repo/labels/OA-tree",
-            name: "tree",
-            color: "c2e0c6"
-        },
-        {
-            url: "https://api.github.com/repos/Divye02/Demo_repo/labels/OA-tree",
-            name: "treeasdf",
+            name: "computer-vision",
             color: "c2e0c6"
         }
     ]};

@@ -11,7 +11,7 @@ const client_id = '3c3a5087f013115ba635';
 const client_secret = '12bd42f1c77097c542d872c4c4f7be860af399b2';
 
 /* GET home page. */
-router.post('/', function(req, res, next) {
+router.get('/', function(req, res, next) {
     var issues = [];
     Repos.find({}, (error, repos) => {
         var total_repos = repos.length;
@@ -26,7 +26,7 @@ router.post('/', function(req, res, next) {
                     current_repos++;
                 }
                 if (current_repos == total_repos) {
-                    res.send(issues);
+                    res.redirect('/search');
                 }
                 body.forEach((issue) => {
                     issues.push(issue)
@@ -58,7 +58,7 @@ router.post('/', function(req, res, next) {
                             current_repos++;
                         }
                         if (current_repos == total_repos) {
-                            res.send(issues);
+                            res.redirect('/search');
                         }
                     });
                 });
@@ -67,19 +67,12 @@ router.post('/', function(req, res, next) {
     });
 });
 
-router.get('/', function(req, res, next) {
-    Issues.find({}, (error, issues) => {
-        res.send(issues);
-    });
-});
-
-router.get('/search', (req, res, next) => {
-    let searchParams = ["graphs", "tree"];
-
+router.post('/search', (req, res, next) => {
+    let searchParams = req.body.tag;
     Issues.find({
                     "labels.name" : { $in : searchParams }
                 }).then((data) => {
-                    res.send({data: data});
+                    res.render('collectedIssues', {issues: data});
                 }).catch((err) => {
                     res.send(err);
                 });
