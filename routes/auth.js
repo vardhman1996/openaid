@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-var client_id = 'c47fcedb8ecbf237865b';  // anirban's: c47fcedb8ecbf237865b
-var client_secret = '60ad0084cf857573180baecf161108337a2b35ab';  // anirban's: 60ad0084cf857573180baecf161108337a2b35ab
-var redirect_uri_user = 'http://52.33.59.36:5000/users';
-var redirect_uri_accessTokenTemp = 'http://52.33.59.36:5000/auth/temp_token';
+var client_id = '3c3a5087f013115ba635';  // anirban's: c47fcedb8ecbf237865b
+var client_secret = '12bd42f1c77097c542d872c4c4f7be860af399b2';  // anirban's: 60ad0084cf857573180baecf161108337a2b35ab
+var redirect_uri_user = 'http://52.33.59.36:4000/users';
+var redirect_uri_accessTokenTemp = 'http://52.33.59.36:4000/auth/temp_token';
 
 var github_auth = 'https://github.com/login/oauth/authorize?'
 var request = require('request');
