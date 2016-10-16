@@ -4,15 +4,17 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var mongoose = require('mongoose');
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var repository = require('./routes/repository');
 var auth = require('./routes/auth');
 var auth_code = require('./routes/code');
 var repo = require('./routes/repo');
 
-
 var app = express();
+
+mongoose.connect('mongodb://127.0.0.1:27017/openaid');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/data/repository', repository);
 app.use('/auth', auth);
 app.use('/code', auth_code);
 app.use('/repo', repo);

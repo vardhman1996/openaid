@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var User = require('../models/user');
+
 
 var client_id = '3c3a5087f013115ba635';
 var client_secret = '12bd42f1c77097c542d872c4c4f7be860af399b2';
@@ -24,7 +26,6 @@ router.get('/', function(req, res, next) {
       console.log(d);
     });
   });
-
 });
 
 

@@ -12,6 +12,7 @@
     "express": "~4.13.4",
     "https": "^1.0.0",
     "jade": "~1.11.0",
+    "mongoose": "^4.6.3",
     "morgan": "~1.7.0",
     "rapidapi-connect": "0.0.2",
     "request": "^2.75.0",
