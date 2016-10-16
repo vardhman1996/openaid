@@ -308,3 +308,8 @@ h5 {
 .issuelink {
     color: black;
 }
+
+#instructions {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
