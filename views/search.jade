@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h1#SearchTitle Look for interesting fields
+    div.grid
+        ul
+        each tag in tags.labels
+            style=" color: #FF333"
+            li(style="border-color: ##{tag.color}") #{tag.name}

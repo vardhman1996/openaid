@@ -1,3 +1,4 @@
+/*Common css and header*/
 html {
     height: 100%;
 }
@@ -10,22 +11,21 @@ body {
 
 #header {
     width: 100%;
-    height: 100px;
+    height: 10%;
     background: #FF4C3B;
     position: fixed;
     color: white;
 }
 
 h1 {
-    margin: 0px;
-    padding-top: 30px;
-    padding-left: 20px;
+    margin: 10px;
+    padding: 10px;
 }
 
 #signout {
     float: right;
     margin: 0px;
-    margin-top: -20px;
+    margin-top: -40px;
     margin-right: 20px;
     padding-top: 0px;
     padding-right: 20px;
@@ -35,16 +35,23 @@ h1 {
 #aboutus {
     float: right;
     margin: 0px;
-    margin-top: -20px;
-    margin-right: 100px;
+    margin-top: -40px;
+    margin-right: 140px;
     padding-top: 0px;
     padding-right: 20px;
     display: inline;
 }
 
+/*Landing page*/
+#landingoptions {
+    width: 100%;
+    height: 80%;
+    position: relative;
+}
+
 #left, #right {
     margin: 0px;
-    margin-top: 100px;
+    margin-top: 5%;
     width: 50%;
     height: 400px;
     float: left;
@@ -52,7 +59,6 @@ h1 {
     background-size: cover;
     max-height: 80%;
     max-width: 50%;
-    position: relative;
     text-align: center;
 }
 
@@ -66,7 +72,6 @@ h1 {
 
 button {
     border: 0px;
-    border-radius: 8px;
     padding: 15px;
     color: white;
     background: #00c3ff;
@@ -79,20 +84,18 @@ button {
 
 #About {
     color: white;
-    background: #01787c;
+    background: #2a3951;
     text-align: center;
     padding: 40px;
     height: 100%;
 }
 
-#About h1 {
-    margin-top: 90%;
-    position: relative;
-    margin-top: 20px ;
+#About>h1 {
+    padding-top: 30px;
 }
 
 p {
-    margin: 60px;
+    margin: 40px;
     margin-right: 20%;
     margin-left: 20%;
 }
@@ -107,6 +110,8 @@ a {
     text-align: center;
     margin: 0px;
     padding-top: 100px;
+    background: gainsboro;
+    height: 100%;
 }
 
 #Repositories h1 {
@@ -119,33 +124,39 @@ form {
 }
 
 label {
-    border-radius: 10px;
     font-size: 1.2em;
     height: 60px;
 }
 
-#optionSection {
-    background: rgba(200, 200, 200, 0.8);
+.optionSection {
+    background: rgba(255, 255, 255, 0.8);
     width: 80%;
     white-space: nowrap;
-    border-radius: 10px;
     margin: 0px;
     margin-right: 10%;
     margin-left: 10%;
     margin-bottom: 20px;
     padding: 10px;
     text-align: left;
+    box-shadow: 2px 2px 2px #888888;
 }
 
-#title {
+.title {
     font-size: 1.4em;
     font-weight: bold;
 }
 
-#description {
+.description {
     font-size: 1.0em;
     color: gray;
-
+    margin-top: 10px;
+    margin-left: 10px;
+    word-wrap: break-word;
+    display: inline-block;
+    width: 70%;
+    max-width: 70%;
+    vertical-align: top;
+    white-space: normal;
 }
 
 input {
@@ -186,4 +197,68 @@ input {
 
 #Masters h1 {
     margin-bottom: 30px;
+}
+
+h5 {
+    font-size: 1.2em;
+    margin-right: 40px;
+}
+
+/*Issues*/
+#Issues {
+    text-align: center;
+    margin: 0px;
+    padding-top: 100px;
+    background: gainsboro;
+    height: 100%;
+}
+
+#Issues h1 {
+    margin-bottom: 30px;
+}
+
+#submitissues {
+    float: none;
+    border: 0px;
+    border-radius: 8px;
+    padding: 12px;
+    color: white;
+    background: #00c3ff;
+    font-size: 1.4em;
+
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+}
+
+.grid {
+    margin: 0px;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 20%;
+    height: 20%;
+    border: 2px;
+    text-align: center;
+}
+
+ul {
+    margin: 0px;
+}
+
+li {
+    list-style-type: none;
+    width: 80px;
+    height: 80px;
+    border: 6px solid black;
+    margin: 5px;
+    padding: 10px;
+    display: inline;
+    border-radius: 6px;
+}
+
+#SearchTitle {
+    text-align: center;
+    margin: 0px;
+    padding-top: 100px;
 }

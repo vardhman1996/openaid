@@ -3,15 +3,15 @@ extends layout
 block content
     div#Repositories
         h1 Choose Your Repositories
-        form(action="localhost:3000/repos", method="post")
+        form(action="#", method="post")
             each repo in repos
                 label
-                    div#optionSection
-                        span#title #{repo.name}
+                    div.optionSection
+                        span.title #{repo.name}
                         br
-                        spane#description #{repo.description}
+                        span.description #{repo.description}
                         div#input
-                            input(type="checkbox" name='repo' value='#{repo}')
+                            input.check(type="checkbox" name='repo' value='#{repo}')
             else
                 p "Sorry, we didn't find any repositories."
             input#submitrepos(type="submit", name="Submit")

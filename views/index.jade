@@ -1,12 +1,13 @@
 extends layout
 
 block content
-  div#left
-    button
-      a(href="localhost:3000/developer") Contribute to Open Source Projects
-  div#right
-    button
-      a(href="localhost:3000/master") Publish your Project
+  div#landingOptions
+    div#left
+      button
+        a(href="/views/developer") Contribute to Open Source Projects
+    div#right
+      button
+        a(href="/auth") Publish your Project
   div#About
     h1 About Us
     p There are a number of challenges in contributing to the open source community. From understanding humongous code bases to realizing what issues need to be addressed and what features need to be implemented.
