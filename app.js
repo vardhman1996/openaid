@@ -9,8 +9,12 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var repository = require('./routes/repository');
 var auth = require('./routes/auth');
+<<<<<<< HEAD
 var auth_code = require('./routes/code');
 var repo = require('./routes/repo');
+=======
+
+>>>>>>> d2eafef2e5fd84ddc9910c4334a7a8f6704dba54
 
 var app = express();
 
@@ -32,8 +36,11 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/data/repository', repository);
 app.use('/auth', auth);
+<<<<<<< HEAD
 app.use('/code', auth_code);
 app.use('/repo', repo);
+=======
+>>>>>>> d2eafef2e5fd84ddc9910c4334a7a8f6704dba54
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
